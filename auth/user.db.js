@@ -8,4 +8,8 @@ function findByUsername(username) {
   return db("users").where({ username }).first();
 }
 
-module.exports = { find, findByUsername };
+function create(user) {
+  return db("users").insert(user);
+}
+
+module.exports = { find, findByUsername, create };
