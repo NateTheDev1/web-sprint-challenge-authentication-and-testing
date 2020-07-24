@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
   const secret = process.env.JWT_SECRET;
 
   if (!token) {
-    res.status(400).json({ error: "Access Denied" });
+    return res.status(400).json({ error: "Access Denied" });
   }
 
   const verified = await jwt.verify(token, secret);
